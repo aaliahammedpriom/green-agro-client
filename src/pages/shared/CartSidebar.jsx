@@ -8,37 +8,43 @@ const CartSidebar = () => {
 
     useEffect(() => {
         if (user?.email) {
-            axios.get(`http://localhost:5000/addtocart/${user.email}`)
+            axios.get(`https://green-agro-server.vercel.app/addtocart/${user.email}`)
                 .then(data => setCartItems(data.data))
                 .catch(err => console.error(err));
         }
     }, [user, refech, isOpen]);
 
     const increaseQuantity = (product_id) => {
-        axios.post(`http://localhost:5000/addtocart?email=${user.email}&product_id=${product_id}`)
+        axios.post(`https://green-agro-server.vercel.app/addtocart?email=${user.email}&product_id=${product_id}`)
             .then(res => {
-                console.log(res.data)
+                // console.log(res.data)
                 setRefech(!refech)
             })
-            .catch(error => console.log('Axios error:', error));
+            .catch(error => {
+                // console.log('Axios error:', error)
+            });
     };
 
     const decreaseQuantity = (product_id) => {
-        axios.post(`http://localhost:5000/addtocart?email=${user.email}&product_id=${product_id}&&decrease=${true}`)
+        axios.post(`https://green-agro-server.vercel.app/addtocart?email=${user.email}&product_id=${product_id}&&decrease=${true}`)
             .then(res => {
-                console.log(res.data)
+                // console.log(res.data)
                 setRefech(!refech)
             })
-            .catch(error => console.log('Axios error:', error));
+            .catch(error => {
+                // console.log('Axios error:', error)
+            });
     };
 
     const deleteItem = (product_id) => {
-        axios.post(`http://localhost:5000/addtocart?email=${user.email}&product_id=${product_id}&&delete=${true}`)
+        axios.post(`https://green-agro-server.vercel.app/addtocart?email=${user.email}&product_id=${product_id}&&delete=${true}`)
             .then(res => {
-                console.log(res.data)
+                // console.log(res.data)
                 setRefech(!refech)
             })
-            .catch(error => console.log('Axios error:', error));
+            .catch(error => {
+                // console.log('Axios error:', error)
+            });
     };
 
     const totalPrice = cartItems.reduce((price, item) => price + item.price * item.quantity, 0);

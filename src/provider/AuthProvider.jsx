@@ -5,7 +5,7 @@ import { auth } from '../firebase.config';
 export const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
-    const [user, setUser] = useState({ email: "guest@gmail.com.com"})
+    const [user, setUser] = useState({ email: "guest@gmail.com.com" })
     const [isOpen, setIsOpen] = useState(false)
     const [loading, setLoading] = useState(true);
     const [refech, setRefech] = useState(true);
@@ -16,8 +16,8 @@ const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
-            
-            setUser(currentUser)
+            const user = { email: "guest@gmail.com.com" }
+            setUser(user)
             setLoading(false)
         })
         return unSubscribe

@@ -5,7 +5,7 @@ import Products from '../products/Products';
 
 const Home = () => {
     const [products, setProducts] = useState([])
-    fetch("http://localhost:5000/products")
+    fetch("https://green-agro-server.vercel.app/products")
         .then(res => res.json())
         .then(data => setProducts(data))
     return (

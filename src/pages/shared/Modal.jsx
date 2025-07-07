@@ -6,14 +6,16 @@ const Modal = () => {
     const { user, refech, setRefech } = useContext(AuthContext)
     const submitCheckout = (e) => {
         e.preventDefault();
-        axios.delete(`http://localhost:5000/addtocart/${user.email}`)
+        axios.delete(`https://green-agro-server.vercel.app/addtocart/${user.email}`)
             .then(res => {
-                console.log(res.data)
+                // console.log(res.data)
                 setRefech(!refech)
                 alert("Order placed successfully!");
                 document.getElementById('checkout_modal').close();
             })
-            .catch(error => console.log('Axios error:', error));
+            .catch(error =>{
+                // console.log('Axios error:', error)
+            });
 
     }
     return (

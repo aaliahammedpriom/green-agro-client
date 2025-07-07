@@ -18,7 +18,7 @@ const AddProductsForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetch('http://localhost:5000/products', {
+        fetch('https://green-agro-server.vercel.app/products', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

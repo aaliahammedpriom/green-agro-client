@@ -7,12 +7,14 @@ const ProductCart = ({ product }) => {
     const { user, refech, setRefech } = useContext(AuthContext)
     const { _id, image, title, price, unit } = product;
     const addToCart = (email, product_id, title,price,image,unit) => {
-        axios.post(`http://localhost:5000/addtocart?email=${email}&product_id=${product_id}&title=${title}&price=${price}&image=${image}&unit=${unit}`)
+        axios.post(`https://green-agro-server.vercel.app/addtocart?email=${email}&product_id=${product_id}&title=${title}&price=${price}&image=${image}&unit=${unit}`)
             .then(res => {
-                console.log(res.data)
+                // console.log(res.data)
                 setRefech(!refech)
             })
-            .catch(error => console.log('Axios error:', error));
+            .catch(error =>{
+                // console.log('Axios error:', error)
+            });
     }
 
     return (
